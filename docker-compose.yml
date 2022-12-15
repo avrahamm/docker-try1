@@ -10,5 +10,10 @@ services:
       - ./:/var/www/html
     environment:
       XDEBUG_CONFIG: "remote_host=host.docker.internal remote_enable=1 remote_connect_back=1"
+#      XDEBUG_CONFIG: "remote_host=${IP} remote_enable=on remote_connect_back=1"
 #      XDEBUG_CONFIG: "remote_host=host.docker.internal remote_enable=1 "
       PHP_IDE_CONFIG: "serverName=localhost"
+
+#netsh interface portproxy add v4tov4 listenport=8880
+#listenaddress=0.0.0.0 connectport=80
+#connectaddress=$($(wsl hostname -I).Trim());

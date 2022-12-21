@@ -1,18 +1,13 @@
-version: '3.9'
+version: '3'
 services:
   app:
     build:
       context: .
       dockerfile: Dockerfile
-    ports:
-      - "8881:80"
     volumes:
-      - ./app:/var/www/html
+      - .:/var/www/html
+    ports:
+      - "8081:80"
     environment:
-      PHP_IDE_CONFIG: "serverName=localhost"
+      XDEBUG_CONFIG: "remote_host=host.docker.internal remote_log = /tmp/xdebug_log"
 
-#netsh interface portproxy add v4tov4 listenport=8880
-#listenaddress=0.0.0.0 connectport=80
-#connectaddress=$($(wsl hostname -I).Trim());
-# =>
-# broke http://localhost:8880/test.php

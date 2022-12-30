@@ -9,5 +9,5 @@ services:
     ports:
       - "8081:80"
     environment:
-      XDEBUG_CONFIG: "remote_host=host.docker.internal remote_log = /tmp/xdebug_log"
+      XDEBUG_CONFIG: "remote_host=${HOST_MACHINE} remote_log = /tmp/xdebug_log"
 
